@@ -4,10 +4,9 @@ const { Schema } = mongoose
 
 const userplanSchema = new Schema(
     {
-        username:{
-            type: String,
-            required: true,
-            unique: true
+        user:{
+            type: Schema.Types.ObjectId,
+            ref: 'User',
         },
         planname:{
             type: String,
@@ -21,6 +20,9 @@ const userplanSchema = new Schema(
         planend:{
             type: Date,
             required: false
+        },
+        planstatus:{
+            type: String,
         },
     },
     {

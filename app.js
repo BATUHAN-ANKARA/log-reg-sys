@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 //routes
-app.get("*", checkUser)
+app.use("*", checkUser)
 app.use("/", pageRoute)
 app.use("/users", userRoute)
 app.use("/plans", planRoute)

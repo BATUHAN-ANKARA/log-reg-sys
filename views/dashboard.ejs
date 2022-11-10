@@ -24,14 +24,66 @@
           <div class="row">
             <div class="col-md-12">
               <div class="satteb text_align_center">
-                <p>fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that itfact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that itfact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that itfact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it</p>
-                <h3><%= user.username %></h3>
+                <h3><%= userplan.planname %></h3>
+                <h3></h3>
+                <h3><%= substatus %></h3>
+                <h3>Plan Continue Until: <%= userplan.planend%></h3>
+                <h3></h3>
                 <i><img src="/images/custo.jpg" alt="#"/></i>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+              <div class="row">
+                <div class="col-md-12 ">
+                  <div class="text_align_center">
+                    <h2 style="
+                    font-size: 30px;
+                    margin-bottom: 20px;
+                    color: #D43A8E;
+                ">Purchase Monthly Plan</h2>
+                  </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                  <form id="request" class="main_form" method="POST" action="purchase/monthly">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <h2>You Will Purchase Monthly Plan</h2>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="group_form">
+                          <button class="read_more">Confirm</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="row">
+            <div class="col-md-12 text_align_center">
+              <% if (substatus == "aktif") { %>
+                <% } else { %>
+              <button data-toggle="modal" data-target=".bd-example-modal-lg" type="button"
+                style=" margin-top:100px; margin-left: 50%; transform: translateX(-50%);" class="read_more"
+                href="about.html">Purchase Monthly Plan</button>
+                <% }%>
+            </div>
+          </div>
       <!-- end about -->
       <!-- end footer -->
       <%- include("partials/_footer") %>

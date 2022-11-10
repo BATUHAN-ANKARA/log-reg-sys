@@ -16,17 +16,5 @@ const getLoginPage = (req, res) => {
     })
 }
 
-const getDashboardPage = (req, res) => {
-    res.render("dashboard", {
-        link: "dashboard",
-    })
-}
 
-const getPlandetailPage = (req, res) => {
-    res.render("plandetail", {
-        link: "plandetail",
-    })
-}
-
-
-export{getIndexPage, getDashboardPage, getRegisterPage, getLoginPage, getPlandetailPage}
+export{getIndexPage, getRegisterPage, getLoginPage}
