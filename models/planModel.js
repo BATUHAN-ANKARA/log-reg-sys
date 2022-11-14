@@ -8,12 +8,10 @@ const planSchema = new Schema(
         planname:{
             type: String,
             required: true,
-            unique: true
         },
         howmanydays:{
             type: Number,
             required: true,
-            unique: true
         }
     },
     {

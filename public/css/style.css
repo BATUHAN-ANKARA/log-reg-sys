@@ -256,7 +256,7 @@ button {
     width: 100%;
     transition: ease-in all 0.5s;
     color: #fff;
-    display: block;
+    display: inline-block;
     height: 76px;
     line-height: 76px;
     text-align: center;

@@ -2,26 +2,23 @@ import mongoose from "mongoose"
 
 const { Schema } = mongoose
 
-const userplanSchema = new Schema(
+const newsSchema = new Schema(
     {
         user:{
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
-        planname:{
+        name:{
             type: String,
             required: true
         },
-        planstart:{
-            type: Date,
-            required: false
-        },
-        planend:{
-            type: Date,
-            required: false
-        },
-        planstatus:{
+        description:{
             type: String,
+            required: true
+        },
+        img_url:{
+            type: String,
+            required: false
         },
     },
     {
@@ -29,6 +26,6 @@ const userplanSchema = new Schema(
     }
 )
 
-const UserPlan = mongoose.model("UserPlan", userplanSchema)
+const News = mongoose.model("News", newsSchema)
 
-export default UserPlan
+export default News

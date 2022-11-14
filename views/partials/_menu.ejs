@@ -4,7 +4,7 @@
          
           <div class=" col-md-2 col-sm-3">
              <div class="logo">
-                <a href="/">lens<br><span>light</span></a>
+                <a href="http://localhost:3000/">sub<br><span>sys</span></a>
              </div>
           </div>
           <div class="col-md-8 col-sm-9">
@@ -13,7 +13,9 @@
                    <ul>
                      <% if (user) { %>
                         <li><a class="<%= link === 'dashboard' && 'active' %>" href="/users/dashboard">Dashboard</a></li>
+                        <li><a class="<%= link === 'news' && 'active' %>" href="/users/news">News</a></li>
                         <li><a href="/logout">Logout</a></li>
+                        <li><a href="/plans">Plans</a></li>
                         <% } else { %>
                           <li><a class="<%= link === 'login' && 'active' %>" href="/login">Login</a></li>
                           <li><a class="<%= link === 'register' && 'active' %>" href="/register">Register</a></li>
@@ -26,7 +28,14 @@
              </div>
           </div>
           <div class=" col-md-2 di_none">
-            <ul class="email text_align_right"><li><a href="Javascript:void(0)">Logout</a></li>
+            <ul class="email text_align_right">
+               <% if (user) { %>
+               <li>
+                  <a href="Javascript:void(0)"><% user.username %></a>
+               </li>
+               <% } else { %>
+                  
+               <% }%>
             <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
             </ul>
           </div>

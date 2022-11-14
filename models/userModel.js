@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import bcyrpt from "bcrypt"
+import validator from "validator"
 
 const { Schema } = mongoose
 
@@ -7,17 +8,19 @@ const userSchema = new Schema(
     {
         username:{
             type: String,
-            required: true,
-            unique: true
+            required: [true, "Username Area Is Required"],
+            unique: true,
+            validate: [validator.isAlphanumeric, "Only Alphanumeric Characters"]
         },
         email:{
             type: String,
-            required: true,
-            unique: true
+            required: [true, "Email Area Is Required"],
+            unique: true,
+            validate: [validator.isEmail, "Valid Email Is Required"]
         },
         password:{
             type: String,
-            required: true
+            required: [true, "Password Area Is Required"],
         },
     },
     {

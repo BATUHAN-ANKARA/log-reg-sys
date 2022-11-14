@@ -1,6 +1,7 @@
 <%- include("partials/_header") %>
    <!-- body -->
    <body class="main-layout inner_page">
+
       <!-- loader  -->
       <div class="loader_bg">
          <div class="loader"><img src="/images/loading.gif" alt="#"/></div>
@@ -11,13 +12,39 @@
          <%- include("partials/_menu") %>
       <!-- end header inner -->
       <!-- about -->
+      <div class="row">
+        <div class="col-md-12 text_align_center">
+          <% if (substatus == "pasif") { %>
+            <button data-toggle="modal" data-target=".bd-example-modal-lg1" type="button"
+            style=" margin-top:10px; margin-left: 0; transform: translateX(0%);" class="read_more"
+            href="about.html">Elite Plan</button>
+            <% } else { %>
+          
+            <% }%>
+            <% if (substatus == "pasif") { %>
+              <button data-toggle="modal" data-target=".bd-example-modal-lg2" type="button"
+              style=" margin-top:10px; margin-left: 0; transform: translateX(0%);" class="read_more"
+              href="about.html">Deluxe Plan</button>
+              <% } else { %>
+            
+              <% }%>
+              <% if (substatus == "pasif") { %>
+                <button data-toggle="modal" data-target=".bd-example-modal-lg3" type="button"
+                style=" margin-top:10px; margin-left: 0; transform: translateX(0%);" class="read_more"
+                href="about.html">Platinum Plan</button>
+                <% } else { %>
+              
+                <% }%>
+        </div>
+        
+      </div>
       <div class="customers">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="titlepage text_align_center">
-                <span>04</span>
-                <h2>Welcome <%= user.username %></h2>
+                <h2>WELCOME <%= user.username %></h2>
+                <span data-toggle="modal" data-target=".bd-example-modal-lg4">Click For Status</span>
               </div>
             </div>
           </div>
@@ -25,17 +52,14 @@
             <div class="col-md-12">
               <div class="satteb text_align_center">
                 <h3><%= userplan.planname %></h3>
-                <h3></h3>
-                <h3><%= substatus %></h3>
                 <h3>Plan Continue Until: <%= userplan.planend%></h3>
-                <h3></h3>
-                <i><img src="/images/custo.jpg" alt="#"/></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+
+      <div class="modal fade bd-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -52,18 +76,18 @@
                     font-size: 30px;
                     margin-bottom: 20px;
                     color: #D43A8E;
-                ">Purchase Monthly Plan</h2>
+                ">About Elite Plan</h2>
                   </div>
                 </div>
                 <div class="col-md-10 offset-md-1">
-                  <form id="request" class="main_form" method="POST" action="purchase/monthly">
+                  <form id="request" class="main_form" method="get" action="purchase/payment">
                     <div class="row">
-                      <div class="col-md-8">
-                        <h2>You Will Purchase Monthly Plan</h2>
+                      <div class="col-md-18">
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa, esse sapiente voluptatem quam libero, quos delectus hic sit laborum blanditiis et deserunt, non sunt veniam porro accusantium maiores optio?</h2>
                       </div>
                       <div class="col-md-12">
                         <div class="group_form">
-                          <button class="read_more">Confirm</button>
+                          <button class="read_more">BUY</button>
                         </div>
                       </div>
                     </div>
@@ -74,16 +98,126 @@
           </div>
         </div>
       </div>
-          <div class="row">
-            <div class="col-md-12 text_align_center">
-              <% if (substatus == "aktif") { %>
-                <% } else { %>
-              <button data-toggle="modal" data-target=".bd-example-modal-lg" type="button"
-                style=" margin-top:100px; margin-left: 50%; transform: translateX(-50%);" class="read_more"
-                href="about.html">Purchase Monthly Plan</button>
-                <% }%>
+
+      <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+              <div class="row">
+                <div class="col-md-12 ">
+                  <div class="text_align_center">
+                    <h2 style="
+                    font-size: 30px;
+                    margin-bottom: 20px;
+                    color: #D43A8E;
+                ">About Deluxe Plan</h2>
+                  </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                  <form id="request" class="main_form" method="GET" action="purchase/payment">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus esse totam, aperiam ab consequatur numquam eaque voluptates ratione animi at corrupti ipsam illum cum dolore, quia vero! Sapiente, repellendus.</h2>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="group_form">
+                          <button class="read_more">BUY</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="modal fade bd-example-modal-lg3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+              <div class="row">
+                <div class="col-md-12 ">
+                  <div class="text_align_center">
+                    <h2 style="
+                    font-size: 30px;
+                    margin-bottom: 20px;
+                    color: #D43A8E;
+                ">About Platinum Plan</h2>
+                  </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                  <form id="request" class="main_form" method="get" action="purchase/payment">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eligendi aperiam veniam quasi explicabo, culpa reiciendis soluta ex optio! Eius ut enim vitae a corrupti incidunt, quidem facilis deleniti sed.</h2>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="group_form">
+                          <button class="read_more">BUY</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade bd-example-modal-lg4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+              <div class="row">
+                <div class="col-md-12 ">
+                  <div class="text_align_center">
+                    <h2 style="
+                    font-size: 30px;
+                    margin-bottom: 20px;
+                    color: #D43A8E;
+                ">About Your Status</h2>
+                  </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                  <form id="request" class="main_form" method="get" action="/plans">
+                    <div class="row">
+                      <div class="col-md-18">
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa, esse sapiente voluptatem quam libero, quos delectus hic sit laborum blanditiis et deserunt, non sunt veniam porro accusantium maiores optio?</h2>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="group_form">
+                          <button class="read_more">See Other Plans</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- end about -->
       <!-- end footer -->
       <%- include("partials/_footer") %>

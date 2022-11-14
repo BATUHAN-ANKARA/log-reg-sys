@@ -1,0 +1,108 @@
+<%- include("partials/_header") %>
+   <!-- body -->
+   <body class="main-layout inner_page">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="/images/loading.gif" alt="#"/></div>
+      </div>
+      <!-- end loader -->
+     
+         <!-- header -->
+         <%- include("partials/_menu") %>
+      <!-- end header inner -->
+      <!-- about -->
+      <div class="customers">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="titlepage text_align_center">
+                <% if (substatus == "pasif") { %>
+                <span>Go To Dashboard</span>
+                <span>Then Buy A plan</span>
+                <% } else { %>
+                  <% }%>
+                <h2><%= user.username %>'s News Page</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="satteb text_align_center">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio est dignissimos commodi reiciendis inventore id reprehenderit nemo eius omnis labore dolorem animi voluptas, dicta iusto ea consequatur, veritatis iure tenetur?</p>
+                <h3><%= userplan.planname %></h3>
+                <div class="row">
+                  <div class="col-md-12 text_align_center">
+                    <button data-toggle="modal" data-target=".bd-example-modal-lg1" type="button"
+                      style=" margin-top:10px; margin-left: 25%; transform: translateX(-50%);" class="read_more"
+                      href="about.html">Add New</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade bd-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+              <div class="row">
+                <div class="col-md-12 ">
+                  <div class="text_align_center">
+                    <h2 style="
+                    font-size: 30px;
+                    margin-bottom: 20px;
+                    color: #D43A8E;
+                ">Post New</h2>
+                  </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                    <form id="request" class="main_form" method="POST" action="/news/add">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <input class="form_control" placeholder="Name" type="text" name="name">
+                          </div>
+                          <div class="col-md-12">
+                            <textarea name="description" style="height: 150px;" class="form_control"
+                              placeholder="Description" rows="5"></textarea>
+                          </div>
+    
+                          <div style="margin-bottom: 20px ;" class="col-md-12">
+                            <input type="file" class="form-control-file">
+                          </div>
+    
+                          <div class="col-md-12">
+                            <div class="group_form">
+                              <button class="read_more">Post New</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="satteb text_align_center">
+              <h3><%= news.name %></h3>
+              <p><%= news.description %></p>
+            <div class="row">
+              <div class="col-md-12 text_align_center">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end about -->
+      <!-- end footer -->
+      <%- include("partials/_footer") %>

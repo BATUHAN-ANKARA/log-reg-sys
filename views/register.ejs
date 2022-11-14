@@ -43,20 +43,15 @@
                  
                   <div class=" col-md-2 col-sm-3">
                      <div class="logo">
-                        <a href="index.html">lens<br><span>light</span></a>
+                        <a href="http://localhost:3000">sub<br><span>sys</span></a>
                      </div>
                   </div>
                   <div class="col-md-8 col-sm-9">
                      <div class="navbar-area">
                         <nav class="site-navbar">
                            <ul>
-                              <li><a href="index.html">Home</a></li>
-                              <li><a href="about.html">About</a></li>
-                              <li><a href="services.html">Services</a></li>
-                              <li><a href="gallery.html">Gallery</a></li>
-                              <li><a href="projects.html">Projects</a></li>
-                              <li><a href="blog.html">Blog</a></li>
-                              <li><a class="active" href="contact.html">Contact</a></li>
+                              <li><a class="active" href="http://localhost:3000/register">Register</a></li>
+                              <li><a href="http://localhost:3000/login">Login</a></li>
                            </ul>
                            <button class="nav-toggler">
                            <span></span>
@@ -65,7 +60,7 @@
                      </div>
                   </div>
                   <div class=" col-md-2 di_none">
-                    <ul class="email text_align_right"><li><a href="Javascript:void(0)">Login</a></li>
+                    <ul class="email text_align_right">
                     <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
@@ -90,11 +85,20 @@
                       <input class="form_control" placeholder="username" type="text" name="username"> 
                     </div>
                     <div class="col-md-12">
+                     <div style="display: none;" class="alert alert-danger" id="username"></div>
+                    </div>
+                    <div class="col-md-12">
                      <input class="form_control" placeholder="email" type="email" name="email"> 
                    </div>
                    <div class="col-md-12">
+                     <div style="display: none;" class="alert alert-danger" id="email"></div>
+                  </div>
+                   <div class="col-md-12">
                      <input class="form_control" placeholder="password" type="password" name="password"> 
                    </div>
+                   <div class="col-md-12">
+                     <div style="display: none;" class="alert alert-danger" id="password"></div>
+                  </div>
                     <div class="col-md-12">
                       <div class="group_form">
                         <button class="send_btn" type="submit">REGISTER</button>
@@ -106,6 +110,53 @@
             </div>
           </div>
         </div>
+
+        <script>
+         const form = document.querySelector('form')
+         const emailError = document.querySelector('#email')
+         const passwordError = document.querySelector('#password')
+         const usernameError = document.querySelector('#username')
+         form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            usernameError.textContent = "";
+            emailError.style.display = "none"
+            passwordError.style.display = "none"
+            usernameError.style.display = "none"
+            const email = form.email.value
+            const password = form.password.value
+            const username = form.username.value
+            try {
+               const res = await fetch('users/register', {
+                  method: "POST",
+                  body: JSON.stringify({ email, password, username }),
+                  headers: { "Content-Type": "application/json" }
+               })
+               const data = await res.json();
+               if (data) {
+                  if (data.email) {
+                     emailError.textContent = data.email
+                     emailError.style.display = "block"
+                  }
+                  if (data.password) {
+                     passwordError.textContent = data.password
+                     passwordError.style.display = "block"
+                  }
+                  if (data.username) {
+                     usernameError.textContent = data.username
+                     usernameError.style.display = "block"
+                  }
+               }
+               if (data.user) {
+                  location.assign("/login")
+               }
+            } catch (err) {
+               console.log("ERR::", err)
+            }
+         })
+      </script>
+
       <!-- end contact -->
       <!-- end footer -->
       <footer>
@@ -114,13 +165,8 @@
                <div class="row">
                         <div class="col-md-12">
                               <ul class="menu_footer">
-                                 <li><a href="index.html">Home</a></li>
-                                 <li><a href="about.html">About</a></li>
-                                 <li><a href="services.html">Services</a></li>
-                                 <li><a href="gallery.html">Gallery</a></li>
-                                 <li><a href="projects.html">Projects</a></li>
-                                 <li><a href="blog.html">Blog</a></li>
-                                 <li><a class="active" href="contact.html">Contact</a></li>
+                                 <li><a class="active" href="http://localhost:3000/register">Register</a></li>
+                                 <li><a href="http://localhost:3000/login">Login</a></li>
                               </ul>
                         </div>
                         <div class="col-md-12">
