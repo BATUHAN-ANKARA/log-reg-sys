@@ -7,6 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    this is the payment page
+    
+    <form action="/payment/plan" method="post">
+
+    <p>Please select your favorite Web language:</p>
+      <input type="radio" id="Deluxe30" name="plan" value="Deluxe30">
+      <label for="html">Deluxe30</label><br>
+      <input type="radio" id="Deluxe365" name="plan" value="Deluxe365">
+      <label for="css">Deluxe365</label><br>
+      <input type="radio" id="Platinum30" name="plan" value="Platinum30">
+      <label for="javascript">Platinum30</label><br>
+      <input type="radio" id="Platinum365" name="plan" value="Platinum365">
+      <label for="javascript">Platinum365</label>
+    <input type="submit" value="Submit" name="submit"onclick="alertFunction()">
+    <input type="submit" value="no payment" name="submit"onclick="alertFunction2()">
+    </form>
+
+<script>
+function alertFunction() {
+  alert("Ödeme Başarılı");
+}
+function alertFunction2() {
+  alert("Ödeme Başarısız");
+  window.location(dashboard)
+}
+</script>
+
 </body>
 </html>

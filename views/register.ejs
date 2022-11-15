@@ -111,6 +111,7 @@
           </div>
         </div>
 
+        <!-- form validation -->
         <script>
          const form = document.querySelector('form')
          const emailError = document.querySelector('#email')
@@ -150,6 +151,7 @@
                }
                if (data.user) {
                   location.assign("/login")
+                  alert("Kayıt Başarıyla Oluşturuldu Giriş Yapabilirsiniz")
                }
             } catch (err) {
                console.log("ERR::", err)

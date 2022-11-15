@@ -23,6 +23,9 @@ const userplanSchema = new Schema(
         planstatus:{
             type: String,
         },
+        payment:{
+            type: String,
+        },
     },
     {
         timestamps: true

@@ -1,6 +1,5 @@
 import express from "express"
 import * as userController from "../controllers/userController.js"
-// import * as newsController from "../controllers/newsController.js"
 import * as authMiddleware from "../middlewares/authMiddleware.js"
 
 const router = express.Router()

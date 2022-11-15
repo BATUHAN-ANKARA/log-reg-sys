@@ -8,6 +8,8 @@ import pageRoute from "./routes/pageRoute.js"
 import userRoute from "./routes/userRoute.js"
 import planRoute from "./routes/planRoute.js"
 import newsRoute from "./routes/newsRoute.js"
+import paymentRoute from "./routes/paymentRoute.js"
+
 dotenv.config()
 
 //Connection to the db
@@ -32,6 +34,7 @@ app.use("/", pageRoute)
 app.use("/users", userRoute)
 app.use("/plans", planRoute)
 app.use("/news", newsRoute)
+app.use("/payment", paymentRoute)
 
 
 app.listen(port, ()=>{
